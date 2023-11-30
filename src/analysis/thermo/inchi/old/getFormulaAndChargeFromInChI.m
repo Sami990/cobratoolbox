@@ -21,7 +21,7 @@ end
 
 q = {};
 if ~isempty(strmatch('q',layers))
-    q = layers{strmatch('q',layers)}; % charge
+    q = layers{strmatch('q',layers)} % charge
 end
 
 if ~isempty(q)
@@ -39,9 +39,11 @@ end
 
 formula = regexprep(f1,'H[a-z]*[0-9]*',''); % Remove all H from fully protonated formula
 if nH == 1
-    formula = [formula 'H'];
+     formula = regexprep(formula, '(C\d+)', '$1H');
+% formula =[formula 'H'];
 elseif nH > 1
-    formula = [formula 'H' num2str(nH)]; % Add appropriate nH back in to create pseudoisomer formula
+    formula = regexprep(formula, '(C\d+)', sprintf('$1H%d', nH));
+%     formula = [formula 'H' num2str(nH)]; % Add appropriate nH back in to create pseudoisomer formula
 elseif nH < 0
     error('Negative number of H in formula.') % Should never get here
 end
