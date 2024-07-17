@@ -111,8 +111,8 @@ ylabel(ax(1), 'Objective function Flux (eFBA)', "FontSize",14, "FontWeight","bol
 ylabel(ax(2), 'Entropic part of Objective function (eFBA)', "FontSize",14, "FontWeight","bold");
 xlabel('C-value', "FontSize",14, "FontWeight","bold")
 
-set(ax(1),'YLim',[min(solution_vals(:,1))-2  max(solution_vals(:,1))+2])
-set(ax(2),'YLim',[min(solution_vals(:,3))-2  max(solution_vals(:,3))+2])
+set(ax(1),'YLim',[min(solution_vals(:,1))-2  max(solution_vals(:,1))+2], "FontSize",12, "FontWeight","bold")
+set(ax(2),'YLim',[min(solution_vals(:,3))-100  max(solution_vals(:,3))+100], "FontSize",12, "FontWeight","bold")
 
 grid on
 grid minor
